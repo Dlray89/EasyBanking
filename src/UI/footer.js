@@ -83,7 +83,7 @@ const Footer = () => {
   return (
     <Grid className={classes.footer}>
       <Grid container direction="row" justify='space-between'>
-        {/* logo, social media and links */}
+       
         <Grid
           item
           container
@@ -103,7 +103,7 @@ const Footer = () => {
               <img
                 className={classes.logo}
                 alt="easy bank logo"
-                bank
+                
                 src={Logo}
               />
             </Grid>
@@ -162,7 +162,7 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/*// copyright and button */}
+     
         <Grid item className={classes.secondContainer}>
           <Grid container item direction='column' justify='center' alignItems='center'>
             <Grid item className={classes.buttonContainer}>

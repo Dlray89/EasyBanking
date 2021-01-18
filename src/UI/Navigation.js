@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {},
   buttonContainer: {
-    marginRight: "3em",
+    marginRight: "6em",
   },
   mainNav: {
     width: '30%'
@@ -32,9 +32,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     color:'black',
     opacity:'60%'
-  },
-  buttonContainer:{
-    marginRight:'6em'
   },
   button: {
     borderRadius: "10em",
@@ -75,7 +72,7 @@ const Navigation = () => {
     }
   }, [value]);
   return (
-    <AppBar classes={{root: classes.AppBar}} elevation='none'>
+    <AppBar classes={{root: classes.AppBar}} elevation={0}>
       <Toolbar>
       <Grid
       container
@@ -85,7 +82,7 @@ const Navigation = () => {
       className={classes.nav}
     >
       <Grid className={classes.logoContainer} item>
-        <img className={classes.logo} alt="logo for easy bank" src={Logo} />
+        <img className={classes.logo} alt="logo for easybank" src={Logo} />
       </Grid>
 
       <Grid item className={classes.mainNav}>

@@ -149,7 +149,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
 
-        <img className={classes.img} src={phoneMockups} />
+        <img className={classes.img} src={phoneMockups} alt='four phones in plus sign order' />
       </Grid>
 
       <Grid container className={classes.whyChoose} direction="column">
@@ -173,7 +173,7 @@ const LandingPage = () => {
         <Grid item className={classes.iconContainer}>
           <Grid container direction="column">
             <Grid item>
-              <img src={onlineBanking} className={classes.icons} />
+              <img src={onlineBanking} className={classes.icons} alt='hand holding debit cards' />
             </Grid>
 
             <Grid item className={classes.iconTitle}>
@@ -190,7 +190,7 @@ const LandingPage = () => {
         <Grid item className={classes.iconContainer}>
           <Grid container direction="column">
             <Grid item>
-              <img src={simpleBudgeting} className={classes.icons} />
+              <img src={simpleBudgeting} className={classes.icons} alt='mobile phone with $'/>
             </Grid>
 
             <Grid item className={classes.iconTitle}>
@@ -207,7 +207,7 @@ const LandingPage = () => {
         <Grid item className={classes.iconContainer}>
           <Grid container direction="column">
             <Grid item>
-              <img src={onBoarding} className={classes.icons} />
+              <img src={onBoarding} className={classes.icons} alt='three people ' />
             </Grid>
 
             <Grid item className={classes.iconTitle}>
@@ -224,7 +224,7 @@ const LandingPage = () => {
         <Grid item className={classes.iconContainer}>
           <Grid container direction="column">
             <Grid item>
-              <img src={openApi} className={classes.icons} />
+              <img src={openApi} className={classes.icons} alt='icon of micro chip' />
             </Grid>
 
             <Grid item className={classes.iconTitle}>
