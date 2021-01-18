@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   makeStyles,
-  Tab,
-  Tabs,
+ 
   Grid,
   AppBar,
   Toolbar,
 } from "@material-ui/core";
 import Logo from "../assets/images/logo.svg";
-import App from "../App";
 
 const useStyles = makeStyles((theme) => ({
   nav: {

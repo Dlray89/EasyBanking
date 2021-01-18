@@ -6,7 +6,6 @@ import Pintrest from "../assets/images/icon-pinterest.svg";
 import Instagram from "../assets/images/icon-instagram.svg";
 import Twitter from "../assets/images/icon-twitter.svg";
 import Youtube from "../assets/images/icon-youtube.svg";
-import theme from "./theme";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
