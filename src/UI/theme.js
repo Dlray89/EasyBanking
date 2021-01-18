@@ -38,12 +38,18 @@ export default createMuiTheme({
     typography:{
         navigation:{
             fontFamily:'Public Sans, sans-serif',
-            fontWeight: 600
+            fontWeight: 200
         },
         button:{
-            fontFamily:'Public Sans, sans-serif',
-            fontWeight: 900
+            fontWeight: 700,
+            color:'#fff',
+        },
+        h5:{
+            color:'white',
+            fontWeight: 100,
+            fontSize:'1em'
         }
+        
     },
     overrides:{
         MuiTab:{

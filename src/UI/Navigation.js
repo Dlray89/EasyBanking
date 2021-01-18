@@ -1,30 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { Button, makeStyles, Tab, Tabs, Grid } from "@material-ui/core";
+import {
+  Button,
+  makeStyles,
+  Tab,
+  Tabs,
+  Grid,
+  AppBar,
+  Toolbar,
+} from "@material-ui/core";
 import Logo from "../assets/images/logo.svg";
+import App from "../App";
 
 const useStyles = makeStyles((theme) => ({
-  nav: {},
+  nav: {
+    padding:'1em',
+    zIndex:1305
+  },
   logoContainer: {
-    marginLeft: "3em",
+    marginLeft: "10.55em",
   },
   logo: {},
   buttonContainer: {
     marginRight: "3em",
   },
-  mainNav: {},
+  mainNav: {
+    width: '30%'
+  },
   navContainer: {},
-  link: {
+  links: {
     textTransform: "none",
     margin: 0,
-    ...theme.typography.navigation,
+    color:'black',
+    opacity:'60%'
+  },
+  buttonContainer:{
+    marginRight:'6em'
   },
   button: {
     borderRadius: "10em",
-    background: theme.palette.common.easyGreen,
+    background: "linear-gradient(to right, #00f260, #0575e6);",
     color: theme.palette.common.easyWhite,
     ...theme.typography.button,
     fontSize: "0.75em",
+    fontFamily:'Public Sans, sans-serif',
   },
+  AppBar:{
+    background:'white'
+  }
 }));
 
 const Navigation = () => {
@@ -53,7 +75,9 @@ const Navigation = () => {
     }
   }, [value]);
   return (
-    <Grid
+    <AppBar classes={{root: classes.AppBar}} elevation='none'>
+      <Toolbar>
+      <Grid
       container
       direction="row"
       justify="space-between"
@@ -65,13 +89,13 @@ const Navigation = () => {
       </Grid>
 
       <Grid item className={classes.mainNav}>
-        <Tabs value={value} className={classes.navContainer} aria-label="navigation">
-          <Tab className={classes.link} label="Home" />
-          <Tab className={classes.link} label="About" />
-          <Tab className={classes.link} label="Contact" />
-          <Tab className={classes.link} label="Blog" />
-          <Tab className={classes.link} label="Careers" />
-        </Tabs>
+        <Grid container item direction="row" justify="space-evenly" alignItems='center'>
+          <Grid item className={classes.links}>Home</Grid>
+          <Grid item className={classes.links}>About</Grid>
+          <Grid item className={classes.links}>Contact</Grid>
+          <Grid item className={classes.links}>Blog</Grid>
+          <Grid item className={classes.links}>Career</Grid>
+        </Grid>
       </Grid>
 
       <Grid item className={classes.buttonContainer}>
@@ -80,6 +104,9 @@ const Navigation = () => {
         </Button>
       </Grid>
     </Grid>
+      </Toolbar>
+    </AppBar>
+    
   );
 };
 
