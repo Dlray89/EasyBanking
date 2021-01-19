@@ -41,7 +41,7 @@ export default createMuiTheme({
             fontWeight: 200
         },
         button:{
-            fontWeight: 700,
+            fontWeight: 600,
             color:'#fff',
         },
         h5:{

@@ -117,8 +117,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     background:'linear-gradient(to right, #00f260, #0575e6)',
     ...theme.typography.button,
-    fontSize:'0.75em',
-    fontWeight: 100
+    fontSize:'0.75em'
+
   },
   copyright:{
     color:'#fff',

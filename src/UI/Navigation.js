@@ -61,10 +61,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     borderRadius: "10em",
     background: "linear-gradient(to right, #00f260, #0575e6);",
-    color: theme.palette.common.easyWhite,
-    ...theme.typography.button,
-    fontSize: "0.75em",
-    fontFamily: "Public Sans, sans-serif",
+    color: '#fff',
+    fontSize:'0.75em'
+    
   },
   AppBar: {
     background: "white",

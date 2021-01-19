@@ -107,7 +107,6 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(to right, #00f260, #0575e6)",
     ...theme.typography.button,
     fontSize: "0.75em",
-    fontWeight: 100,
   },
   mainImgContainer: {
     width: "40%",
