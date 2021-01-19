@@ -60,7 +60,7 @@ export default createMuiTheme({
         },
         MuiPopover:{
             paper:{
-                width:'100%',
+                width:'90%',
                 marginTop:'4em'
             }
         }

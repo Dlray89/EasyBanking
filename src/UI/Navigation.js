@@ -8,12 +8,14 @@ import {
   Grid,
   AppBar,
   Toolbar,
- 
+ Backdrop,
   Popover,
+  IconButton,
   
 } from "@material-ui/core";
 import Logo from "../assets/images/logo.svg";
-import hamburger from "../assets/images/icon-hamburger.svg";
+import MenuIcon from '@material-ui/icons/Menu';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 const ElevationScroll = (props) => {
   const { children } = props;
@@ -68,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
   AppBar: {
     background: "white",
   },
+  backdrop:{
+    zIndex: theme.zIndex.drawer + 1,
+    color:'#fff'
+  }
 }));
 
 const Navigation = () => {
@@ -108,29 +114,33 @@ const Navigation = () => {
     <React.Fragment>
    
 
-    <Button onClick={() => setOpen(!open)}>
+    <div onClick={() => setOpen(!open)}>
       {open ? (
-        <React.Fragment onClick={() => setOpen(false)}>
-          <Button>X</Button>
-        </React.Fragment>
+        <IconButton style={{borderRadius: 0, padding: 0}} onClick={() => setOpen(false)}>
+          <CancelIcon style={{cursor:'pointer'}}  />
+        </IconButton>
       ) :
       (
-        <React.Fragment>
-          <img src={hamburger} alt='three lines stacked'  />
-        </React.Fragment>
+        
+        <IconButton style={{borderRadius: 0, padding: 0}}>
+          <MenuIcon  />
+        </IconButton>
       )}
       
-    </Button>
-    <Popover open={open} onClose={() => setOpen(false)} style={{border:'solid 2px red'}}>
-      <Grid container direction='column'style={{border:'solid 2px red'}} >
+    </div>
+  
+    <Popover open={open} onClose={() => setOpen(false)}>
+      
+      <Grid container direction='column' >
         <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Home</Grid>
         <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>About</Grid>
         <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Contact</Grid>
         <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Blog</Grid>
         <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Career</Grid>
       </Grid>
+      
     </Popover>
-    </React.Fragment>
+    </React.Fragment>  
   );
 
 
