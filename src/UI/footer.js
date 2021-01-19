@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid, makeStyles, Typography, useTheme, useMediaQuery } from "@material-ui/core";
 import Logo from "../assets/images/easybankone.svg";
 import FaceBook from "../assets/images/icon-facebook.svg";
 import Pintrest from "../assets/images/icon-pinterest.svg";
@@ -11,19 +11,45 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.common.easyBlue,
     padding: "2em",
+    
+  },
+  footerContainer:{
+    [theme.breakpoints.down('sm')]:{
+      width:'100%'
+    }
   },
   firstContainer: {
-    width: "60%",
+    width: "55%",
+    
+    marginLeft:'8.5em',
+    [theme.breakpoints.down('sm')]:{
+      margin: 0,
+      width:'100%',
+     
+    }
   },
   logoContainer: {
     marginBottom: "2em",
+    [theme.breakpoints.down('sm')]:{
+      
+      width:'100%',
+      marginBottom:'0.55em',
+      textAlign:'center'
+    }
   },
   logo: {},
   socialMedia:{
     width:'100%'
   },
   socialMediaCOntainer:{
-      width:'100%'
+      width:'100%',
+      
+      marginLeft:'1em',
+      [theme.breakpoints.down('sm')]:{
+
+        width:'60%',
+        margin: '0.55em auto'
+      }
   },
   socialMediaIcons:{
 
@@ -31,19 +57,32 @@ const useStyles = makeStyles((theme) => ({
   socialLogoLinks: {
     width: "30%",
     marginRight:'1em',
+    [theme.breakpoints.down('sm')]:{
+      width:'100%'
+    }
     
   },
   leftLinks:{
     marginRight:'2em',
     marginLeft:'2em',
     width:'20%',
-    textAlign:'center'
+    textAlign:'center',
+    [theme.breakpoints.down('sm')]:{
+      
+      width:'100%',
+      margin: 0
+    }
 
   },
   rightLinks:{
     marginRight:'1em',
     width:'20%',
-    textAlign:'center'
+    textAlign:'center',
+    [theme.breakpoints.down('sm')]:{
+      
+      width:'100%',
+      margin: 0
+    }
 
   },
   
@@ -57,11 +96,22 @@ const useStyles = makeStyles((theme) => ({
   },
   secondContainer:{
     width:'30%',
-    textAlign:'center'
+    textAlign:'center',
+    
+    [theme.breakpoints.down('sm')]:{
+      
+      width:'100%',
+      margin: 0
+    }
   },
   buttonContainer:{
     marginBottom:'1em',
-    marginTop:'1em'
+    marginTop:'1em',
+    [theme.breakpoints.down('sm')]:{
+      
+      width:'100%',
+      marginBottom:'0.55em'
+    }
   },
   requestButton:{
     borderRadius: '20px',
@@ -79,14 +129,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = () => {
   const classes = useStyles();
+  const theme = useTheme()
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
   return (
     <Grid className={classes.footer}>
-      <Grid container direction="row" justify='space-between'>
+      <Grid className={classes.footerContainer} container direction={ matchesSM ? "column" : "row"} justify='space-between'>
        
         <Grid
           item
           container
-          direction="row"
+          direction={ matchesSM ? "column" : "row"}
           justify="flex-start"
           className={classes.firstContainer}
         >

@@ -2,34 +2,60 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   makeStyles,
- 
+  useScrollTrigger,
+  useMediaQuery,
+  useTheme,
   Grid,
   AppBar,
   Toolbar,
+ 
+  Popover,
+  
 } from "@material-ui/core";
 import Logo from "../assets/images/logo.svg";
+import hamburger from "../assets/images/icon-hamburger.svg";
+
+const ElevationScroll = (props) => {
+  const { children } = props;
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+};
 
 const useStyles = makeStyles((theme) => ({
   nav: {
-    padding:'1em',
-    zIndex:1305
+    padding: "1em",
+    zIndex: 1305,
   },
   logoContainer: {
     marginLeft: "10.55em",
+    [theme.breakpoints.down('md')]:{
+      margin: 0
+    }
   },
-  logo: {},
+  logo: {
+    [theme.breakpoints.down('md')]:{
+      width:'7em'
+    }
+  },
   buttonContainer: {
     marginRight: "6em",
   },
   mainNav: {
-    width: '30%'
+    width: "30%",
   },
   navContainer: {},
   links: {
     textTransform: "none",
     margin: 0,
-    color:'black',
-    opacity:'60%'
+    color: "black",
+    opacity: "60%",
   },
   button: {
     borderRadius: "10em",
@@ -37,16 +63,24 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.easyWhite,
     ...theme.typography.button,
     fontSize: "0.75em",
-    fontFamily:'Public Sans, sans-serif',
+    fontFamily: "Public Sans, sans-serif",
   },
-  AppBar:{
-    background:'white'
-  }
+  AppBar: {
+    background: "white",
+  },
 }));
 
 const Navigation = () => {
   const classes = useStyles();
   const [value, setVaule] = useState(0);
+  const [open, setOpen] = useState(false);
+  // const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const theme = useTheme();
+  const matchMd = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // const changeHandler = (e, newValue) => {
+  //   setVaule(newValue);
+  // };
 
   useEffect(() => {
     switch (window.location.pathname) {
@@ -69,39 +103,96 @@ const Navigation = () => {
         break;
     }
   }, [value]);
+
+  const mobileNav = (
+    <React.Fragment>
+   
+
+    <Button onClick={() => setOpen(!open)}>
+      {open ? (
+        <React.Fragment onClick={() => setOpen(false)}>
+          <Button>X</Button>
+        </React.Fragment>
+      ) :
+      (
+        <React.Fragment>
+          <img src={hamburger} alt='three lines stacked'  />
+        </React.Fragment>
+      )}
+      
+    </Button>
+    <Popover open={open} onClose={() => setOpen(false)} style={{border:'solid 2px red'}}>
+      <Grid container direction='column'style={{border:'solid 2px red'}} >
+        <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Home</Grid>
+        <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>About</Grid>
+        <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Contact</Grid>
+        <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Blog</Grid>
+        <Grid item component={Button} style={{width:'100%', textTransform:'none'}}>Career</Grid>
+      </Grid>
+    </Popover>
+    </React.Fragment>
+  );
+
+
+  const desktopNav = (
+    <React.Fragment>
+        <Grid item className={classes.mainNav}>
+            <Grid
+              container
+              item
+              direction="row"
+              justify="space-evenly"
+              alignItems="center"
+            >
+              <Grid item className={classes.links}>
+                Home
+              </Grid>
+              <Grid item className={classes.links}>
+                About
+              </Grid>
+              <Grid item className={classes.links}>
+                Contact
+              </Grid>
+              <Grid item className={classes.links}>
+                Blog
+              </Grid>
+              <Grid item className={classes.links}>
+                Career
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item className={classes.buttonContainer}>
+            <Button className={classes.button} variant="contained">
+              Request Invite
+            </Button>
+          </Grid>
+    </React.Fragment>
+  )
   return (
-    <AppBar classes={{root: classes.AppBar}} elevation={0}>
+    <ElevationScroll>
+    <AppBar classes={{ root: classes.AppBar }} elevation={0}>
       <Toolbar>
-      <Grid
-      container
-      direction="row"
-      justify="space-between"
-      alignItems="center"
-      className={classes.nav}
-    >
-      <Grid className={classes.logoContainer} item>
-        <img className={classes.logo} alt="logo for easybank" src={Logo} />
-      </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+          className={classes.nav}
+        >
+          <Grid className={classes.logoContainer} item>
+            <img className={classes.logo} alt="logo for easybank" src={Logo} />
+          </Grid>
 
-      <Grid item className={classes.mainNav}>
-        <Grid container item direction="row" justify="space-evenly" alignItems='center'>
-          <Grid item className={classes.links}>Home</Grid>
-          <Grid item className={classes.links}>About</Grid>
-          <Grid item className={classes.links}>Contact</Grid>
-          <Grid item className={classes.links}>Blog</Grid>
-          <Grid item className={classes.links}>Career</Grid>
+         
+            {matchMd ? mobileNav : desktopNav}
+        
+          
+         
         </Grid>
-      </Grid>
-
-      <Grid item className={classes.buttonContainer}>
-        <Button className={classes.button} variant="contained">
-          Request Invite
-        </Button>
-      </Grid>
-    </Grid>
       </Toolbar>
     </AppBar>
-    
+    </ElevationScroll>
   );
 };
 

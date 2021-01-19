@@ -57,6 +57,14 @@ export default createMuiTheme({
             padding: 0,
             margin: 0
             }
+        },
+        MuiPopover:{
+            paper:{
+                width:'100%',
+                marginTop:'4em'
+            }
         }
+        
+        
     }
 })
