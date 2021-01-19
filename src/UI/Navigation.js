@@ -57,12 +57,20 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     color: "black",
     opacity: "60%",
+    cursor:'pointer',
+
+    "&:hover":{
+      borderBottom: 'solid 5px #00F260',
+    }
   },
   button: {
     borderRadius: "10em",
     background: "linear-gradient(to right, #00f260, #0575e6);",
     color: '#fff',
-    fontSize:'0.75em'
+    fontSize:'0.75em',
+    '&:hover':{
+      background: 'linear-gradient(to left, #00c9ff, #92fe9d)'
+    }
     
   },
   AppBar: {

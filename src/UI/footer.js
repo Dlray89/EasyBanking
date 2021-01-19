@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
       width:'100%',
       
       marginLeft:'1em',
+     
       [theme.breakpoints.down('sm')]:{
 
         width:'60%',
@@ -52,11 +53,13 @@ const useStyles = makeStyles((theme) => ({
       }
   },
   socialMediaIcons:{
+   
 
   },
   socialLogoLinks: {
     width: "30%",
     marginRight:'1em',
+    
     [theme.breakpoints.down('sm')]:{
       width:'100%'
     }
@@ -117,7 +120,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     background:'linear-gradient(to right, #00f260, #0575e6)',
     ...theme.typography.button,
-    fontSize:'0.75em'
+    fontSize:'0.75em',
+    '&:hover':{
+      background: 'linear-gradient(to left, #00c9ff, #92fe9d)'
+    }
 
   },
   copyright:{

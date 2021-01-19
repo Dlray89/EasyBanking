@@ -27,7 +27,6 @@ export default createMuiTheme({
         },
         primary:{
             main: easyBlue,
-            light: easyGrayBlue
             
         },
         secondary:{

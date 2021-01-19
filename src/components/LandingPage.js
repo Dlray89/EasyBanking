@@ -107,6 +107,9 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(to right, #00f260, #0575e6)",
     ...theme.typography.button,
     fontSize: "0.75em",
+    '&:hover':{
+        background: 'linear-gradient(to left, #00c9ff, #92fe9d)'
+      }
   },
   mainImgContainer: {
     width: "40%",
@@ -241,6 +244,7 @@ const useStyles = makeStyles((theme) => ({
   },
   lasteArticleTitle:{
     fontSize:'3em',
+    
     [theme.breakpoints.down('sm')]:{
         width:'100%',
         fontSize:'2em',
@@ -292,6 +296,10 @@ const useStyles = makeStyles((theme) => ({
       fontWeight:700,
       marginBottom:'0.55em',
       opacity:'70%',
+      cursor:'pointer',
+      '&:hover':{
+        color: '#00F260'
+    },
       [theme.breakpoints.down('sm')]:{
         textAlign:'center',
         margin: '0 auto',
